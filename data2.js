@@ -1,3 +1,10 @@
+//on load sprawdzanie dat ktore sa i dla kazdej daty sprawdzaj czy jest ciasteczko jak jest to przypisz status ciasteczka 
+//obecny check box i nastepny check box rob z moodulo lub jakis interval bo nowa zmienna nie zadziala bo jak nie bedziesz wchodzil na strone przez x czasu to dupa
+
+
+
+
+
 data = new Date();
 function ciasteczko(name,status){
     d = new Date()
@@ -16,30 +23,34 @@ for (let i = 0; i < document.querySelectorAll('.day').length; i++) {
 }
 
 
-for (let i = 0; i < document.querySelectorAll('#waterTBD').length; i++) {
-    document.querySelectorAll('#waterTBD')[i].addEventListener('click',event=>{
+cheks = document.querySelectorAll('#waterTBD')
+cheksT = Array.from(cheks)
+days= document.querySelectorAll('.day')
+
+
+for (let i = 0; i < cheks.length; i++) {
+    cheks[i].addEventListener('click',event=>{
         event.preventDefault()
+
+        clickI =(cheksT.indexOf(event.target))
+
+
+
         if(event.target.src.slice(-11) =='notDone.png' ){
             event.target.src = './done.png'
-            //ciasteczko('19.03',true)
-            
+            ciasteczko(`${days[clickI].innerHTML}`,true)
+            console.log(`${days[clickI].innerHTML}`)
 
         }
         else{
             event.target.src = './notDone.png'
-            //ciasteczko('19.03',false)
+            ciasteczko(`${days[clickI].innerHTML}`,false)
 
         }
+        
         
     })
     
 }
-document.cookie = "name=oeschger; SameSite=None; Secure"
-document.cookie = "name=oescwdwdhger; SameSite=Lax; Secure"
 
 
-function showCookies() {
-    const output = document.getElementById("cookies");
-    output.textContent = `> ${document.cookie}`;
-  }
-console.log('sdsd')
