@@ -40,3 +40,4 @@ function showCookies() {
     const output = document.getElementById("cookies");
     output.textContent = `> ${document.cookie}`;
   }
+console.log('sdsd')
