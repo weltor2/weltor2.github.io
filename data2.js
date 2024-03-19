@@ -34,7 +34,9 @@ for (let i = 0; i < document.querySelectorAll('#waterTBD').length; i++) {
     })
     
 }
-document.cookie = "username=John Doe"
+document.cookie = "name=oeschger; SameSite=None; Secure"
+document.cookie = "name=oescwdwdhger; SameSite=Lax; Secure"
+
 
 function showCookies() {
     const output = document.getElementById("cookies");
