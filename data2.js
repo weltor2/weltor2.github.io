@@ -38,13 +38,13 @@ for (let i = 0; i < cheks.length; i++) {
 
         if(event.target.src.slice(-11) =='notDone.png' ){
             event.target.src = './done.png'
-            ciasteczko(`${days[clickI].innerHTML}`,true)
-            console.log(`${days[clickI].innerHTML}`)
+            document.cookie = `${days[clickI].innerHTML} = true`
+            
 
         }
         else{
             event.target.src = './notDone.png'
-            ciasteczko(`${days[clickI].innerHTML}`,false)
+            document.cookie = `${days[clickI].innerHTML} = false`
 
         }
         
