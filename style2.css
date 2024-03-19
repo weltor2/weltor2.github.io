@@ -1,32 +1,4 @@
-td,th{
-    border: 3px black solid;
-    width: 30px;
-}
-table{
-    width: 100%;
-    border-collapse: collapse;
-}
-body{
-    text-align: center;
-}
 
-#start{
-    font-size: 40px;
-}
-#baner{
-    width: 100%;
-    height: 30%;
-}
-#prawy, #lewy{
-    width: 20%;
-    float: left;
-    height: 50px;
-}
-#srodek{
-    width: 60%;
-    float: left;
-    height: 50px;
-}
 #main{
     float: left;
     width: 100%;
