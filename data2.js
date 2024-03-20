@@ -56,13 +56,14 @@ for (let i = 0; i < cheks.length; i++) {
 
         if(event.target.src.slice(-11) =='notDone.png' ){
             event.target.src = './done.png'
-            document.cookie = `${nazwa}/${days[clickI].innerHTML} = true`
+            console.log('zapis',`${nazwa}/${daysT[clickI].innerHTML} = true`)
+            document.cookie = `${nazwa}/${daysT[clickI].innerHTML} = true`
             
 
         }
         else{
             event.target.src = './notDone.png'
-            document.cookie = `${nazwa}/${days[clickI].innerHTML} = false`
+            document.cookie = `${nazwa}/${daysT[clickI].innerHTML} = false`
 
         }
         
@@ -77,6 +78,7 @@ for (let i = 0; i < days.length; i++) {
 }
 
 for (let i = 0; i < daysT.length; i++) {
+    console.log('odczyt',`${nazwa}/${daysT[i]}`, 'jaka jest wartosc',getCookie(`${nazwa}/${daysT[i]}`))
     if(getCookie(`${nazwa}/${daysT[i]}`) == 'true'){
         cheks[i].style.display = 'inline'
         cheks[i].src = './done.png'
