@@ -28,10 +28,15 @@ function getCookie(cname) {
     return "";
 }
 
-
+///////////////////////All Plants//////////////////////////
 
 
 Peperomia= {daysTW:2 , firstW:'Mon Mar 20 2024'}  ///date.todatestring()
+
+
+
+/////////////////////////////////////////////////////////////////
+
 
 for (let i = 0; i < days.length; i++) {
     data.setDate((new Date).getDate()-1+i)
@@ -60,14 +65,13 @@ for (let i = 0; i < cheks.length; i++) {
 
 
         if(event.target.src.slice(-11) =='notDone.png' ){
-            event.target.src = './done.png'
-            console.log('zapis',`${nazwa}/${daysT[clickI]} = true`)
+            event.target.src = './sideImg/done.png'
             document.cookie = `${nazwa}/${daysT[clickI]} = true`
             
 
         }
         else{
-            event.target.src = './notDone.png'
+            event.target.src = './sideImg/notDone.png'
             document.cookie = `${nazwa}/${daysT[clickI]} = false`
 
         }
@@ -81,14 +85,13 @@ for (let i = 0; i < cheks.length; i++) {
 
 
 for (let i = 0; i < daysT.length; i++) {
-    console.log('odczyt',`${nazwa}/${daysT[i]}`, 'jaka jest wartosc',getCookie(`${nazwa}/${daysT[i]}`))
     if(getCookie(`${nazwa}/${daysT[i]}`) == 'true'){
         cheks[i].style.display = 'inline'
-        cheks[i].src = './done.png'
+        cheks[i].src = './sideImg/done.png'
     } 
     else if(getCookie(`${nazwa}/${daysT[i]}`) == 'false'){
         cheks[i].style.display = 'inline'
-        cheks[i].src = './notDone.png'
+        cheks[i].src = './sideImg/notDone.png'
     }   
 }
 
