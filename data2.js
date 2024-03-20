@@ -1,21 +1,25 @@
 //on load sprawdzanie dat ktore sa i dla kazdej daty sprawdzaj czy jest ciasteczko jak jest to przypisz status ciasteczka 
 //obecny check box i nastepny check box rob z moodulo lub jakis interval bo nowa zmienna nie zadziala bo jak nie bedziesz wchodzil na strone przez x czasu to dupa
-
-
-
-
-
+//moze tak ze last watering data i potem if data +x jest dzis to daj temu chaczyk 
 data = new Date();
-function ciasteczko(name,status){
-    d = new Date()
-    d.setTime(data.getTime() + (32 *24*60*60*1000))
-    let expr = "expires="+d.toUTCString()
-    document.cookie = name + '=' + status + ';' + expr + ";path=/cookies"
-
-}
 
 
 
+
+
+
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let cookieT = decodedCookie.split(';');
+    for(let i = 0; i <cookieT.length; i++) {
+      if (cookieT[i].indexOf(name) == 0) {
+        return cookieT[i].substring(name.length, cookieT.length);
+      }
+    }
+    return "";
+  }
 
 for (let i = 0; i < document.querySelectorAll('.day').length; i++) {
     data.setDate((new Date).getDate()-1+i)
