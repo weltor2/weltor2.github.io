@@ -76,3 +76,4 @@ for (let i = 0; i < daysT.length; i++) {
         console.log('pomidor')
     }    
 }
+console.log('dziala czy nie dziala ?')
