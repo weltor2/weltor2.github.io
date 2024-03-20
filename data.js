@@ -10,9 +10,7 @@ days= document.querySelectorAll('.day')
 
 const nazwa = (document.querySelector('#srodek').innerText).split(' ')[0] 
 
-for (let i = 0; i < days.length; i++) {
-    daysT.push(days[i].innerHTML)
-}
+
 
 
 function getCookie(cname) {
@@ -43,9 +41,14 @@ for (let i = 0; i < days.length; i++) {
     
     if(daysApart%eval(nazwa).daysTW == 0){
         cheks[i].style.display = 'inline'
-        document.cookie = `${nazwa}/${days[i].innerHTML} = false`
+        document.cookie = `${nazwa}/${daysT[i]} = false`
     }
 }
+
+for (let i = 0; i < days.length; i++) {
+    daysT.push(days[i].innerHTML)
+}
+
 
 
 
@@ -56,17 +59,16 @@ for (let i = 0; i < cheks.length; i++) {
         clickI =(cheksT.indexOf(event.target))
 
 
-
         if(event.target.src.slice(-11) =='notDone.png' ){
             event.target.src = './done.png'
-            console.log('zapis',`${nazwa}/${daysT[clickI].innerHTML} = true`)
-            document.cookie = `${nazwa}/${daysT[clickI].innerHTML} = true`
+            console.log('zapis',`${nazwa}/${daysT[clickI]} = true`)
+            document.cookie = `${nazwa}/${daysT[clickI]} = true`
             
 
         }
         else{
             event.target.src = './notDone.png'
-            document.cookie = `${nazwa}/${daysT[clickI].innerHTML} = false`
+            document.cookie = `${nazwa}/${daysT[clickI]} = false`
 
         }
         
