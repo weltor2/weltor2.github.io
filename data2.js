@@ -24,13 +24,9 @@ function getCookie(cname) {
     return "";
 }
 
-daysH = document.querySelectorAll('.day')
-daysT =[]
-for (let i = 0; i < daysH.length; i++) {
-    daysT.push(daysH[i].innerHTML)
-}
 
-console.log(daysT)
+
+
 
 for (let i = 0; i < document.querySelectorAll('.day').length; i++) {
     data.setDate((new Date).getDate()-1+i)
@@ -68,4 +64,15 @@ for (let i = 0; i < cheks.length; i++) {
     
 }
 
+daysH = document.querySelectorAll('.day')
+daysT =[]
+for (let i = 0; i < daysH.length; i++) {
+    daysT.push(daysH[i].innerHTML)
+}
 
+for (let i = 0; i < daysT.length; i++) {
+    console.log(getCookie(daysT[i]))
+    if(getCookie(daysT[i])){
+        console.log('pomidor')
+    }    
+}
