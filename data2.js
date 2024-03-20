@@ -11,12 +11,15 @@ data = new Date();
 
 function getCookie(cname) {
     let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let cookieT = decodedCookie.split(';');
+    let cookieT = document.cookie.split(';');
     for(let i = 0; i <cookieT.length; i++) {
-      if (cookieT[i].indexOf(name) == 0) {
-        return cookieT[i].substring(name.length, cookieT.length);
-      }
+        let single = cookieT[i];
+        while (single.charAt(0) == ' ') {
+            single = single.substring(1);
+        }
+        if (single.indexOf(name) == 0) {
+            return single.substring(name.length, single.length);
+        }
     }
     return "";
 }
@@ -24,7 +27,7 @@ function getCookie(cname) {
 daysH = document.querySelectorAll('.day')
 daysT =[]
 for (let i = 0; i < daysH.length; i++) {
-    daysT.push(daysH.innerHTML)
+    daysT.push(daysH[i].innerHTML)
 }
 
 console.log(daysT)
