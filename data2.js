@@ -1,11 +1,14 @@
-//on load sprawdzanie dat ktore sa i dla kazdej daty sprawdzaj czy jest ciasteczko jak jest to przypisz status ciasteczka 
-//obecny check box i nastepny check box rob z moodulo lub jakis interval bo nowa zmienna nie zadziala bo jak nie bedziesz wchodzil na strone przez x czasu to dupa
-//moze tak ze last watering data i potem if data +x jest dzis to daj temu chaczyk 
+
 data = new Date();
 
 
+daysT =[]
 
+cheks = document.querySelectorAll('#waterTBD')
+cheksT = Array.from(cheks)
+days= document.querySelectorAll('.day')
 
+const nazwa = (document.querySelector('#srodek').innerText).split(' ')[0] 
 
 
 
@@ -27,16 +30,20 @@ function getCookie(cname) {
 
 
 
+Peperomia= {daysTW:2 , firstW:'Mon Mar 20 2024'}  ///date.todatestring()
 
-for (let i = 0; i < document.querySelectorAll('.day').length; i++) {
+for (let i = 0; i < days.length; i++) {
     data.setDate((new Date).getDate()-1+i)
-    document.querySelectorAll('.day')[i].innerHTML =`${data.getDate()}.${data.getMonth()+1}`    
+    days[i].innerHTML =`${data.getDate()}.${data.getMonth()+1}`  
+
+    daysApart = Math.round((data.getTime() - new Date(Peperomia.firstW).getTime()) /(1000 *3600 *24))
+    
+    if(daysApart%eval(nazwa).daysTW == 0){
+        cheks[i].style.display = 'inline'
+        document.cookie = `${nazwa}/${days[i].innerHTML} = false`
+    }
 }
 
-
-cheks = document.querySelectorAll('#waterTBD')
-cheksT = Array.from(cheks)
-days= document.querySelectorAll('.day')
 
 
 for (let i = 0; i < cheks.length; i++) {
@@ -49,13 +56,13 @@ for (let i = 0; i < cheks.length; i++) {
 
         if(event.target.src.slice(-11) =='notDone.png' ){
             event.target.src = './done.png'
-            document.cookie = `${days[clickI].innerHTML} = true`
+            document.cookie = `${nazwa}/${days[clickI].innerHTML} = true`
             
 
         }
         else{
             event.target.src = './notDone.png'
-            document.cookie = `${days[clickI].innerHTML} = false`
+            document.cookie = `${nazwa}/${days[clickI].innerHTML} = false`
 
         }
         
@@ -64,16 +71,21 @@ for (let i = 0; i < cheks.length; i++) {
     
 }
 
-daysH = document.querySelectorAll('.day')
-daysT =[]
-for (let i = 0; i < daysH.length; i++) {
-    daysT.push(daysH[i].innerHTML)
+
+for (let i = 0; i < days.length; i++) {
+    daysT.push(days[i].innerHTML)
 }
 
 for (let i = 0; i < daysT.length; i++) {
-    console.log(getCookie(daysT[i]))
-    if(getCookie(daysT[i])){
-        console.log('pomidor')
-    }    
+    if(getCookie(`${nazwa}/${daysT[i]}`) == 'true'){
+        cheks[i].style.display = 'inline'
+        cheks[i].src = './done.png'
+    } 
+    else if(getCookie(`${nazwa}/${daysT[i]}`) == 'false'){
+        cheks[i].style.display = 'inline'
+        cheks[i].src = './notDone.png'
+    }   
 }
-console.log('dziala czy nie dziala ?')
+
+
+
