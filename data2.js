@@ -10,6 +10,9 @@ days= document.querySelectorAll('.day')
 
 const nazwa = (document.querySelector('#srodek').innerText).split(' ')[0] 
 
+for (let i = 0; i < days.length; i++) {
+    daysT.push(days[i].innerHTML)
+}
 
 
 function getCookie(cname) {
@@ -73,9 +76,7 @@ for (let i = 0; i < cheks.length; i++) {
 }
 
 
-for (let i = 0; i < days.length; i++) {
-    daysT.push(days[i].innerHTML)
-}
+
 
 for (let i = 0; i < daysT.length; i++) {
     console.log('odczyt',`${nazwa}/${daysT[i]}`, 'jaka jest wartosc',getCookie(`${nazwa}/${daysT[i]}`))
