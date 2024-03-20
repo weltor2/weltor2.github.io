@@ -19,7 +19,15 @@ function getCookie(cname) {
       }
     }
     return "";
-  }
+}
+
+daysH = document.querySelectorAll('.day')
+daysT =[]
+for (let i = 0; i < daysH.length; i++) {
+    daysT.push(daysH.innerHTML)
+}
+
+console.log(daysT)
 
 for (let i = 0; i < document.querySelectorAll('.day').length; i++) {
     data.setDate((new Date).getDate()-1+i)
