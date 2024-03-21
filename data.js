@@ -32,24 +32,24 @@ function getCookie(cname) {
 
 ///////////////////////All Plants//////////////////////////
 
-Asplenium = {daysTW:4 , daysTS:2, firstW:'Mon Mar 21 2024'}
-Beaucarnea ={daysTW:14 , daysTS:0, firstW:'Mon Mar 21 2024'}
-Begonia = {daysTW:6 , daysTS:0, firstW:'Mon Mar 21 2024'}
-Biophytum ={daysTW:6 , daysTS:0, firstW:'Mon Mar 21 2024'}
-Calathea = {daysTW:7 , daysTS:1, firstW:'Mon Mar 21 2024'}
-Ceropegia = {daysTW:10 , daysTS:0, firstW:'Mon Mar 21 2024'}
-Clematicissus = {daysTW:5 , daysTS:1, firstW:'Mon Mar 21 2024'}
-Coffea = {daysTW:5 , daysTS:1, firstW:'Mon Mar 21 2024'}
-Dischidia = {daysTW:4 , daysTS:4, firstW:'Mon Mar 21 2024'}
-Dracaena ={daysTW:14 , daysTS:3, firstW:'Mon Mar 21 2024'}
-Epiphyllum = {daysTW:7 , daysTS:4, firstW:'Mon Mar 21 2024'}
-Monkey = {daysTW:4 , daysTS:1, firstW:'Mon Mar 21 2024'}
-Nematanthus = {daysTW:7 , daysTS:3, firstW:'Mon Mar 21 2024'}
-Nephrolepis ={daysTW:5 , daysTS:1, firstW:'Mon Mar 21 2024'}
-Peperomia = {daysTW:7 , daysTS:0, firstW:'Mon Mar 21 2024'}  ///date.todatestring()
-Philodendron = {daysTW:7 , daysTS:2, firstW:'Mon Mar 21 2024'}
-Pilea = {daysTW:7 , daysTS:1, firstW:'Mon Mar 21 2024'}
-Sansewieria = {daysTW:21 , daysTS:0, firstW:'Mon Mar 21 2024'}
+Asplenium = {daysTW:4 , daysTS:2, firstW:'Mon Mar 20 2024'}
+Beaucarnea ={daysTW:14 , daysTS:0, firstW:'Mon Mar 20 2024'}
+Begonia = {daysTW:6 , daysTS:0, firstW:'Mon Mar 20 2024'}
+Biophytum ={daysTW:6 , daysTS:0, firstW:'Mon Mar 20 2024'}
+Calathea = {daysTW:7 , daysTS:1, firstW:'Mon Mar 20 2024'}
+Ceropegia = {daysTW:10 , daysTS:0, firstW:'Mon Mar 20 2024'}
+Clematicissus = {daysTW:5 , daysTS:1, firstW:'Mon Mar 20 2024'}
+Coffea = {daysTW:5 , daysTS:1, firstW:'Mon Mar 20 2024'}
+Dischidia = {daysTW:4 , daysTS:4, firstW:'Mon Mar 20 2024'}
+Dracaena ={daysTW:14 , daysTS:3, firstW:'Mon Mar 20 2024'}
+Epiphyllum = {daysTW:7 , daysTS:4, firstW:'Mon Mar 20 2024'}
+Monkey = {daysTW:4 , daysTS:1, firstW:'Mon Mar 20 2024'}
+Nematanthus = {daysTW:7 , daysTS:3, firstW:'Mon Mar 20 2024'}
+Nephrolepis ={daysTW:5 , daysTS:1, firstW:'Mon Mar 20 2024'}
+Peperomia = {daysTW:7 , daysTS:0, firstW:'Mon Mar 20 2024'}  ///date.todatestring()
+Philodendron = {daysTW:7 , daysTS:2, firstW:'Mon Mar 20 2024'}
+Pilea = {daysTW:7 , daysTS:1, firstW:'Mon Mar 20 2024'}
+Sansewieria = {daysTW:21 , daysTS:0, firstW:'Mon Mar 20 2024'}
 
 /////////////////////////////////////////////////////////////////
 
@@ -63,13 +63,13 @@ for (let i = 0; i < days.length; i++) {
 
     daysApart = Math.round((data.getTime() - new Date(Peperomia.firstW).getTime()) /(1000 *3600 *24))
     
-    if(daysApart%eval(nazwa).daysTW == 0){
+    if(Math.abs(daysApart)%eval(nazwa).daysTW == 0){
         cheks[i].style.display = 'inline'
-        document.cookie = `${nazwa}/water/${daysT[i]} = false`
+        document.cookie = `${nazwa}/water/${days[i].innerHTML} = false`
     }
     if(daysApart%eval(nazwa).daysTS == 0){
         spray[i].style.display = 'inline'
-        document.cookie = `${nazwa}/spray/${daysT[i]} = false`
+        document.cookie = `${nazwa}/spray/${days[i].innerHTML} = false`
     }
 }
 
@@ -125,12 +125,12 @@ for (let i = 0; i < daysT.length; i++) {
         cheks[i].src = './sideImg/notDone.png'
     }
     if(getCookie(`${nazwa}/spray/${daysT[i]}`) == 'true'){
-        cheks[i].style.display = 'inline'
-        cheks[i].src = './sideImg/done.png'
+        spray[i].style.display = 'inline'
+        spray[i].src = './sideImg/done.png'
     } 
     else if(getCookie(`${nazwa}spray/${daysT[i]}`) == 'false'){
-        cheks[i].style.display = 'inline'
-        cheks[i].src = './sideImg/notDone.png'
+        spray[i].style.display = 'inline'
+        spray[i].src = './sideImg/notDone.png'
     }
 }
 
