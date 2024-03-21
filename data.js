@@ -61,16 +61,16 @@ for (let i = 0; i < days.length; i++) {
     data.setDate((new Date).getDate()-1+i)
     days[i].innerHTML =`${data.getDate()}.${data.getMonth()+1}`  
 
-    daysApart = Math.round((data.getTime() - new Date(Peperomia.firstW).getTime()) /(1000 *3600 *24))
+    daysApart = Math.round((new Date(data.toDateString()).getTime() - new Date(Peperomia.firstW).getTime()) /(1000 *3600 *24))
     
     
-    if(Math.abs(daysApart)%eval(nazwa).daysTW == 0 || data.toDateString() == eval(nazwa).firstW){
+    if(Math.abs(daysApart)%eval(nazwa).daysTW == 0){
         cheks[i].style.display = 'inline'
-        document.cookie = `${nazwa}/water/${days[i].innerHTML} = false`
+        
     }
-    if(Math.abs(daysApart)%eval(nazwa).daysTS == 0 || data.toDateString() == eval(nazwa).firstW){
+    if(Math.abs(daysApart)%eval(nazwa).daysTS == 0){
         spray[i].style.display = 'inline'
-        document.cookie = `${nazwa}/spray/${days[i].innerHTML} = false`
+        
     }
 }
 
